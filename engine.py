@@ -20,7 +20,7 @@ def train(network, loss_function, loss_derivative, X_train, y_train, epochs=1000
             for layer in reversed(network):
                 output_gradient = layer.backward(output_gradient, learning_rate)
 
-            error /= len(X_train)
+        error /= len(X_train)
 
-            if verbose:
-                print(f'Epoch {epoch + 1}/{epochs}, Error: {error:.4f}')
+        if verbose:
+            print(f'Epoch {epoch + 1}/{epochs}, Error: {error:.4f}')
