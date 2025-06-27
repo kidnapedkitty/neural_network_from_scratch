@@ -1,7 +1,7 @@
-def predict(network, input):
+def predict(network, input, training=True):
     output = input
     for layer in network:
-        output = layer.forward(output)
+        output = layer.forward(output, training=training)
     return output
 
 
@@ -10,7 +10,7 @@ def train(network, loss_function, loss_derivative, X_train, y_train, epochs=1000
         error = 0
         for x, y in zip(X_train, y_train):
             # forward pass
-            output = predict(network, x)
+            output = predict(network, x, training=True)
 
             # error calculation
             error += loss_function(y, output)
