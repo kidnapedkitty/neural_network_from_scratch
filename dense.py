@@ -7,7 +7,7 @@ class Dense:
 
         self.bias = np.zeros((output_size, 1))
 
-    def forward(self, input):
+    def forward(self, input, training=True):
         self.input = input
         return np.dot(self.weights.T, input) + self.bias
 
